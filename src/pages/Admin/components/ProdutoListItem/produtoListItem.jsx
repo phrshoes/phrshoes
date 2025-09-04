@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../../../../firebase";
-import styles from "./ProdutoListItem.module.css";
+import styles from "./produtoListItem.module.css";
 
 export default function ProdutoListItem({ produto, onRemove, onUpdate }) {
     const [editando, setEditando] = useState(false);

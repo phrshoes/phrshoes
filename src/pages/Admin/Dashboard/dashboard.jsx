@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Produtos from "../Produtos/produtos";
-import ProdutoForm from "../components/ProdutoForm/ProdutoForm";
-import styles from "./Dashboard.module.css";
+import ProdutoForm from "../components/ProdutoForm/produtoForm";
+import styles from "./dashboard.module.css";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../firebase";
 

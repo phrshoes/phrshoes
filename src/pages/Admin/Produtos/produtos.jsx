@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import ProdutoListItem from "../components/ProdutoListItem/ProdutoListItem";
-import styles from "./Produtos.module.css";
+import ProdutoListItem from "../components/ProdutoListItem/produtoListItem";
+import styles from "./produtos.module.css";
 
 export default function Produtos() {
     const [produtos, setProdutos] = useState([]);
