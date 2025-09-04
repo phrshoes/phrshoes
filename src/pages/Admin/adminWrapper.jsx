@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
-import Login from "../Admin/Login/login";
+import Login from "./Login/login";
 import Dashboard from "./Dashboard/Dashboard";
 import Produtos from "./Produtos/Produtos";
 
