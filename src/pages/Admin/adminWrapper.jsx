@@ -4,8 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
 import Login from "./Login/login.jsx";
-import Dashboard from "./Dashboard/Dashboard";
-import Produtos from "./Produtos/Produtos";
+import Dashboard from "./Dashboard/dashboard";
+import Produtos from "./Produtos/produtos.jsx";
 
 export default function AdminWrapper() {
     const [logado, setLogado] = useState(null);

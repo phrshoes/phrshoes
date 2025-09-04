@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Produtos from "../Produtos/Produtos";
-import ProdutoForm from "../components/ProdutoForm/ProdutoForm"; // ajuste o caminho se necessário
+import Produtos from "../Produtos/produtos";
+import ProdutoForm from "../components/ProdutoForm/ProdutoForm";
 import styles from "./Dashboard.module.css";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../firebase";
