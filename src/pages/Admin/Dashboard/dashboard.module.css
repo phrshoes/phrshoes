@@ -1,0 +1,37 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.botoes {
+    display: flex;
+    gap: 10px;
+}
+
+.botaoAdicionar {
+    background-color: #1d3557;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.botaoAdicionar:hover {
+    background-color: #457b9d;
+}
+
+.botaoLogout {
+    background-color: #e63946;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.botaoLogout:hover {
+    background-color: #d62828;
+}

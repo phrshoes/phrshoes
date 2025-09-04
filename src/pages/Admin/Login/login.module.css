@@ -1,0 +1,45 @@
+.container {
+    max-width: 350px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.titulo {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.botao {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #485CC7;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background-color: #0056b3;
+}
+
+.erro {
+    margin-top: 10px;
+    color: red;
+    font-size: 14px;
+}

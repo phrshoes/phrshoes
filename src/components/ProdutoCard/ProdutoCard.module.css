@@ -1,0 +1,63 @@
+.card {
+    width: 180px;
+    text-align: center;
+    transition: transform 0.2s;
+    margin-bottom: 15px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.imagem {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.nome {
+    cursor: default;
+    font-size: 15px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    min-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.preco {
+    cursor: default;
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.tamanhos {
+    cursor: default;
+    font-size: 10px;
+    color: #666;
+}
+
+.botaoWhats {
+    background-color: #485CC7;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 50px 10px 50px;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.botaoInsta {
+    background-color: #fff;
+    color: #485CC7;
+    font-size: 13px;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+    border-radius: 10px;
+}

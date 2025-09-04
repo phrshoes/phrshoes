@@ -1,0 +1,59 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.viewContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.editContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.buttons {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.botaoEditar {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #ffc107;
+    color: #fff;
+    cursor: pointer;
+}
+
+.botaoEditar:hover {
+    background-color: #e0a800;
+}
+
+.botaoRemover {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #dc3545;
+    color: #fff;
+    cursor: pointer;
+}
+
+.botaoRemover:hover {
+    background-color: #c82333;
+}
