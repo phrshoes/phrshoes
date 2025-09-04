@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
 import Login from "./Login/login.jsx";
-import Dashboard from "./Dashboard/dashboard";
+import Dashboard from "./Dashboard/dashboard.jsx";
 import Produtos from "./Produtos/produtos.jsx";
 
 export default function AdminWrapper() {
