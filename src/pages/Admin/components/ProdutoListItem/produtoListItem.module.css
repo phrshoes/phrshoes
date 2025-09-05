@@ -33,12 +33,14 @@
 }
 
 .botaoEditar {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 6px;
-    background-color: #ffc107;
     color: #fff;
+    font-size: 15px;
     cursor: pointer;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffc107;
+    margin: 10px 0 0 0;
 }
 
 .botaoEditar:hover {
@@ -46,14 +48,23 @@
 }
 
 .botaoRemover {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 6px;
-    background-color: #dc3545;
     color: #fff;
+    font-size: 15px;
     cursor: pointer;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #dc3545;
+    margin: 10px 0 0 0;
 }
 
 .botaoRemover:hover {
     background-color: #c82333;
+}
+
+.imagemPreview {
+    min-width: none;
+    max-width: 25em;
+    height: auto;
+    object-fit: cover;
 }

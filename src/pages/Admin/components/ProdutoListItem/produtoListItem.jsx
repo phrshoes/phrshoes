@@ -8,39 +8,22 @@ export default function ProdutoListItem({ produto, onRemove, onUpdate }) {
     const [nome, setNome] = useState(produto.nome);
     const [preco, setPreco] = useState(produto.preco);
     const [tamanhos, setTamanhos] = useState(produto.tamanhos.join(","));
-    const [imagemFile, setImagemFile] = useState(null);
+    const [link, setLink] = useState(produto.link || "");
+    const [imagemurl, setimagemurl] = useState(produto.imagemurl || "");
     const [carregando, setCarregando] = useState(false);
-
-    // Função para upload de imagem no Cloudinary
-    const uploadImagem = async (file) => {
-        const data = new FormData();
-        data.append("file", file);
-        data.append("upload_preset", "mvqrytex");
-
-        const res = await fetch(
-            "https://api.cloudinary.com/v1_1/mvqrytex/image/upload",
-            { method: "POST", body: data }
-        );
-        const imagemData = await res.json();
-        return imagemData.secure_url;
-    };
 
     const handleUpdate = async () => {
         setCarregando(true);
-        let url = produto.imagemUrl;
 
         try {
-            if (imagemFile) {
-                url = await uploadImagem(imagemFile);
-            }
-
-            const tamanhosArray = tamanhos.split(",").map(t => t.trim());
+            const tamanhosArray = tamanhos.split(",").map((t) => t.trim());
 
             await updateDoc(doc(db, "produtos", produto.id), {
                 nome,
                 preco: parseFloat(preco),
                 tamanhos: tamanhosArray,
-                imagemUrl: url,
+                link,
+                imagemurl,
             });
 
             setEditando(false);
@@ -63,28 +46,41 @@ export default function ProdutoListItem({ produto, onRemove, onUpdate }) {
         <li className={styles.item}>
             {editando ? (
                 <div className={styles.editContainer}>
+                    <h4 className={styles.textEdit}>Nome</h4>
                     <input
                         type="text"
                         value={nome}
-                        onChange={e => setNome(e.target.value)}
+                        onChange={(e) => setNome(e.target.value)}
                         className={styles.input}
                     />
+                    <h4 className={styles.textEdit}>Preço</h4>
                     <input
                         type="number"
                         value={preco}
-                        onChange={e => setPreco(e.target.value)}
+                        onChange={(e) => setPreco(e.target.value)}
                         className={styles.input}
                     />
+                    <h4 className={styles.textEdit}>Tamanhos</h4>
                     <input
                         type="text"
                         value={tamanhos}
-                        onChange={e => setTamanhos(e.target.value)}
+                        onChange={(e) => setTamanhos(e.target.value)}
                         className={styles.input}
                     />
+                    <h4 className={styles.textEdit}>Link Detalhes</h4>
                     <input
-                        type="file"
-                        accept="image/*"
-                        onChange={e => setImagemFile(e.target.files[0])}
+                        type="url"
+                        placeholder="Link dos detalhes"
+                        value={link}
+                        onChange={(e) => setLink(e.target.value)}
+                        className={styles.input}
+                    />
+                    <h4 className={styles.textEdit}>Link Imagem</h4>
+                    <input
+                        type="url"
+                        placeholder="Link da imagem"
+                        value={imagemurl}
+                        onChange={(e) => setimagemurl(e.target.value)}
                         className={styles.input}
                     />
                     <button
@@ -105,9 +101,26 @@ export default function ProdutoListItem({ produto, onRemove, onUpdate }) {
                 <div className={styles.viewContainer}>
                     <span>{produto.nome} - R$ {produto.preco.toFixed(2)}</span>
                     <span>Tamanhos: {produto.tamanhos.join(", ")}</span>
+                    {produto.imagemurl && (
+                        <img
+                            src={produto.imagemurl}
+                            alt={produto.nome}
+                            className={styles.imagemPreview}
+                        />
+                    )}
                     <div className={styles.buttons}>
-                        <button onClick={() => setEditando(true)} className={styles.botaoEditar}>Editar</button>
-                        <button onClick={handleDelete} className={styles.botaoRemover}>Remover</button>
+                        <button
+                            onClick={() => setEditando(true)}
+                            className={styles.botaoEditar}
+                        >
+                            Editar
+                        </button>
+                        <button
+                            onClick={handleDelete}
+                            className={styles.botaoRemover}
+                        >
+                            Remover
+                        </button>
                     </div>
                 </div>
             )}

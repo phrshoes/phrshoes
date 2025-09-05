@@ -26,7 +26,7 @@ export default function Dashboard({ onLogout }) {
                         className={styles.botaoAdicionar}
                         onClick={() => setMostrarForm(!mostrarForm)}
                     >
-                        {mostrarForm ? "Fechar Formulário" : "Adicionar Produto"}
+                        {mostrarForm ? "Fechar" : "Adicionar Produto"}
                     </button>
                     <button className={styles.botaoLogout} onClick={logout}>
                         Sair

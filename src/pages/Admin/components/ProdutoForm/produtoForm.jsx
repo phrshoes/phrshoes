@@ -7,58 +7,38 @@ export default function ProdutoForm({ onAdd }) {
     const [nome, setNome] = useState("");
     const [preco, setPreco] = useState("");
     const [tamanhos, setTamanhos] = useState("");
-    const [linkDetalhes, setLinkDetalhes] = useState(""); // NOVO CAMPO
-    const [imagemFile, setImagemFile] = useState(null);
+    const [link, setLink] = useState("");
+    const [imagemurl, setimagemurl] = useState(""); // agora é só link
     const [carregando, setCarregando] = useState(false);
-
-    // Função para enviar a imagem para o Cloudinary
-    const uploadImagem = async (file) => {
-        const data = new FormData();
-        data.append("file", file);
-        data.append("upload_preset", "mvqrytex");
-
-        const res = await fetch(
-            "https://api.cloudinary.com/v1_1/dibgryyer/image/upload",
-            {
-                method: "POST",
-                body: data,
-            }
-        );
-
-        const imagemData = await res.json();
-        return imagemData.secure_url;
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!imagemFile) {
-            alert("Selecione uma imagem!");
+        if (!imagemurl) {
+            alert("Insira o link de uma imagem!");
             return;
         }
 
         setCarregando(true);
 
         try {
-            const url = await uploadImagem(imagemFile);
-
-            const tamanhosArray = tamanhos.split(",").map(t => t.trim());
+            const tamanhosArray = tamanhos.split(",").map((t) => t.trim());
 
             // Salva no Firestore
             await addDoc(collection(db, "produtos"), {
                 nome,
                 preco: parseFloat(preco),
                 tamanhos: tamanhosArray,
-                imagemUrl: url,
-                linkDetalhes // salva o link
+                imagemurl, // salva direto o link informado
+                link,
             });
 
             // Limpa o formulário
             setNome("");
             setPreco("");
             setTamanhos("");
-            setLinkDetalhes(""); // limpa o campo também
-            setImagemFile(null);
+            setLink("");
+            setimagemurl("");
 
             onAdd();
         } catch (err) {
@@ -98,14 +78,15 @@ export default function ProdutoForm({ onAdd }) {
                 className={styles.input}
                 type="url"
                 placeholder="Link de detalhes (opcional)"
-                value={linkDetalhes}
-                onChange={(e) => setLinkDetalhes(e.target.value)}
+                value={link}
+                onChange={(e) => setLink(e.target.value)}
             />
             <input
                 className={styles.input}
-                type="file"
-                accept="image/*"
-                onChange={(e) => setImagemFile(e.target.files[0])}
+                type="url"
+                placeholder="Link da imagem"
+                value={imagemurl}
+                onChange={(e) => setimagemurl(e.target.value)}
                 required
             />
             <button className={styles.botao} type="submit" disabled={carregando}>
